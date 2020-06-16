@@ -1,5 +1,6 @@
 .example-card {
   max-width: 400px;
+  margin-bottom: 3rem;
 }
 
 .example-header-image {
@@ -15,4 +16,35 @@
   width: 100vw;
   justify-content: center;
   align-items: center;
+}
+
+
+.delayed {
+  animation-duration: 3s;
+  animation-delay: 3s;
+  animation-name: glissement;
+  animation-iteration-count: 1;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.delayed2{
+
+  animation-duration: 3s;
+  animation-delay: 6s;
+  animation-name: glissement;
+  animation-iteration-count: 1;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes glissement {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100;
+  }
 }

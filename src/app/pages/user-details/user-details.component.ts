@@ -30,10 +30,24 @@ export class UserDetailsComponent implements OnInit {
       }, (error) => {
 
         this.snackBar.open('Il y a eu une erreur, pendant la récupération des données de l\'utilisateur via son id: ' + numId,
-          null,
+        null,
           { duration: 3000 });
+        });
       });
+    }
+
+
+
+    deleteUser(id: number){
+      this.userService.delete(id).subscribe(() => {
+        this.userService.getById(id).subscribe((user: User) => {
+          this.snackBar.open('Il semble que l\'objet soit toujours disponible');
+        }, (error) => {
+          this.snackBar.open('Bien joué, la suppression a fonctionnée' );
+        });
     });
   }
+
+
 
 }
