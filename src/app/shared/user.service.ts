@@ -20,4 +20,9 @@ export class UserService {
   getById(id: number){
     return this.http.get<User>(UserService.BASE_URL + '/' + id);
   }
+
+
+  update(user: User){
+    return this.http.put(UserService.BASE_URL +'/'+ user.id, user);
+  }
 }

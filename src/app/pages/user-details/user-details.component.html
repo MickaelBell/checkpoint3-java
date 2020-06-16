@@ -4,7 +4,7 @@
   <mat-card class="example-card">
     <mat-card-header>
     <div *ngIf="!user.imageUrl"  mat-card-avatar class="example-header-image"></div>
-    <div *ngIf="user.imageUrl" mat-card-avatar class="example-header-image" [style.backgroundImage]="user.imageUrl" ></div>
+    <img *ngIf="user.imageUrl" mat-card-avatar [src]="user.imageUrl">
     <mat-card-title>{{user.firstname}}</mat-card-title>
     <mat-card-subtitle>{{user.lastname}}</mat-card-subtitle>
   </mat-card-header>
