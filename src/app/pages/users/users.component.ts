@@ -10,10 +10,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class UsersComponent implements OnInit {
 
-  users: User[] = [];
+  users: User[];
   isLoading = false;
 
-  displayedColumns: string[] = ['Id', 'firstname', 'lastname', 'detail'];
+  displayedColumns: string[] = ['id', 'firstname', 'lastname', 'detail'];
 
 
 
@@ -21,12 +21,12 @@ export class UsersComponent implements OnInit {
   `[{
     "id":1,
     "firstname":"Joe",
-    "lastname":"Start",
+    "lastname":"Start"
   },
   {
     "id":2,
     "firstname":"Baden",
-    "lastname":"Powell",
+    "lastname":"Powell"
   }]`;
 
 
@@ -38,9 +38,12 @@ export class UsersComponent implements OnInit {
     this.isLoading = true;
     this.userService.getAll().subscribe((users) => {
       this.users = users;
+      this.isLoading = false;
     }, (error) => {
-      this.snackBar.open('Il y a eu une erreur, pendant la récupération de la liste');
-    }, () => {
+      setTimeout(() => {
+
+        this.snackBar.open('Il y a eu une erreur, pendant la récupération de la liste', null, {duration: 3000});
+      }, 500);
       this.isLoading = false;
     });
   }

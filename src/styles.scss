@@ -3,8 +3,63 @@
 
 
 h1 {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Indie Flower', cursive !important;
+  font-weight: 400 !important;
+  font-size: 3rem !important;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #DDDDDD;
+}
+
+.error-bloc {
+  background-color: #EE8888;
+  color: black;
+  display: inline;
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 3rem;
+}
+
+
+.rules {
+  background-color: #BBBBDD;
+  color: black;
+  display: block;
+  border-radius: 6px;
+  padding: 1rem;
+
+
+  h1{
+    margin-bottom: 3rem;
+  }
+
+  div{
+    font-size: 2rem;
+    line-height: 4rem;
+    font-family: 'Indie Flower', cursive !important;
+  }
+}
+
+
+pre {
+  background-color: black;
+  color: white;
+  display: inline-block;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+
+.smally{
+    font-size: 2rem;
+    line-height: 4rem;
+    font-family: 'Indie Flower', cursive !important;
+  }

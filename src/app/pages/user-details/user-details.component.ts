@@ -20,7 +20,7 @@ export class UserDetailsComponent implements OnInit {
     this.route.paramMap.subscribe((data) => {
       const numId = +data.get('id');
 
-      if (isNaN(numId)){
+      if (isNaN(numId)) {
         this.snackBar.open('L\id n\'est pas valide: ' + numId);
         return;
       }
@@ -28,11 +28,12 @@ export class UserDetailsComponent implements OnInit {
       this.userService.getById(numId).subscribe((user: User) => {
         this.user = user;
       }, (error) => {
-        this.snackBar.open('Il y a eu une erreur, pendant la récupération des données de l\'utilisateur via son id: ' + numId);
+
+        this.snackBar.open('Il y a eu une erreur, pendant la récupération des données de l\'utilisateur via son id: ' + numId,
+          null,
+          { duration: 3000 });
       });
-
     });
-
   }
 
 }

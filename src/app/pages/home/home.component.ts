@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 
     const randIndex = parseInt((Math.random() * 3 + 1) + '', 10) - 1;
 
-    this.snackBar.open(messages[randIndex]);
+    this.snackBar.open(messages[randIndex], null, {duration: 3000});
   }
 
 

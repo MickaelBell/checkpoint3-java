@@ -1,7 +1,10 @@
-<h1>Ici tu dois être en mesure de faire afficher une liste d'utilisateur</h1>
+<div class="rules" >
+
+
+  <h1>Ici tu dois être en mesure de faire afficher une liste d'utilisateur</h1>
 
 <div>
-  la liste d'utilisateurs affiché aura la forme suivante:
+  Le résultat de la requête attendu aura la forme suivante:
 </div>
 
 <pre>
@@ -11,20 +14,25 @@
 
 
 <div>
-  Pour L'url suivante:   http://localhost:8080/users
+  Pour la requête GET sur l'url suivante:   http://localhost:8080/users
 </div>
 
+</div>
 
 
 <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
 
 <div *ngIf="!isLoading">
 
-  <div *ngIf="users.length == 0">
+  <div *ngIf="!users" class="error-bloc"  >
+    Impossible de récupérer les données
+  </div>
+
+  <div *ngIf="users?.length == 0">
     Il n'y a pas de users à afficher
   </div>
 
-  <div *ngIf="users.length > 0">
+  <div *ngIf="users?.length > 0">
 
 
 
@@ -52,20 +60,25 @@
 
       <ng-container matColumnDef="detail">
         <mat-header-cell *matHeaderCellDef> Détails </mat-header-cell>
-        <mat-cell > <button mat-button color="primary" routerLink="/home" >Details</button> </mat-cell>
+        <mat-cell *matCellDef="let element" > <button mat-button color="primary" [routerLink]="['/details', element.id]" >Afficher les détails</button> </mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
 
-
+<!--
     <section>
       <div class="example-label">Basic</div>
       <div class="example-button-row">
         <button mat-button color="primary" routerLink="/details" >Accepter</button>
       </div>
-    </section>
+    </section> -->
 
+    <div class="smally" >
+      Vas vérifier que les détails s'affichent correctement ;)
+    </div>
   </div>
 </div>
+
+
