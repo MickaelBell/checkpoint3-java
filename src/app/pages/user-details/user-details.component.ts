@@ -1,7 +1,7 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../shared/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../models/user';
 
 @Component({
@@ -13,7 +13,7 @@ export class UserDetailsComponent implements OnInit {
 
   user: User;
 
-  constructor(public userService: UserService, private route: ActivatedRoute, private snackBar: MatSnackBar) { }
+  constructor(public userService: UserService, private route: ActivatedRoute, private snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -43,7 +43,10 @@ export class UserDetailsComponent implements OnInit {
         this.userService.getById(id).subscribe((user: User) => {
           this.snackBar.open('Il semble que l\'objet soit toujours disponible');
         }, (error) => {
-          this.snackBar.open('Bien joué, la suppression a fonctionnée' );
+          const snack = this.snackBar.open('Bien joué, la suppression a fonctionnée' );
+          snack.afterDismissed().subscribe(() => {
+            this.router.navigateByUrl('/home');
+          });
         });
     });
   }
