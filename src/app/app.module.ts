@@ -7,12 +7,15 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { UsersComponent } from './pages/users/users.component';
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +23,8 @@ import { UsersComponent } from './pages/users/users.component';
     AppComponent,
     HomeComponent,
     UsersComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,9 @@ import { UsersComponent } from './pages/users/users.component';
     MatSnackBarModule,
     MatProgressBarModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
