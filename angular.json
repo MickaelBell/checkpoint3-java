@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "chk3"
+    }
+  },
+  "defaultProject": "chk3",
+  "cli": {
+    "analytics": "d098b8df-3c6d-4393-b9c0-2b9c8463de0d"
+  }
 }
