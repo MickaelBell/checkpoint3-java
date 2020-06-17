@@ -17,6 +17,7 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
 import { UsersComponent } from './pages/users/users.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { FormsModule } from '@angular/forms';
+import { FeedComponent } from './pages/feed/feed.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     UsersComponent,
     UserDetailsComponent,
-    EditUserComponent
+    EditUserComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,

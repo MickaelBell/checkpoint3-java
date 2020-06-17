@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
+    const step1 = localStorage.getItem('SETP1');
+
   }
 
   openRefuseMessage(){

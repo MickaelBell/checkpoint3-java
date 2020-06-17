@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
+import { FeedComponent } from './pages/feed/feed.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'details/:id', component: UserDetailsComponent},
   {path: 'edit-user/:id', component: EditUserComponent},
+  {path: 'feed', component: FeedComponent},
 ];
 
 @NgModule({
