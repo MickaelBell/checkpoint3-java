@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { FormsModule } from '@angular/forms';
 import { FeedComponent } from './pages/feed/feed.component';
+import { DialogComponent } from './pages/feed/dialog/dialog.component';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { FeedComponent } from './pages/feed/feed.component';
     UsersComponent,
     UserDetailsComponent,
     EditUserComponent,
-    FeedComponent
+    FeedComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { FeedComponent } from './pages/feed/feed.component';
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

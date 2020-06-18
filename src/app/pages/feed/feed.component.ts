@@ -1,6 +1,11 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../shared/post.service';
 import { Post } from '../../models/post';
+import { CommentService } from '../../shared/comment.service';
+import { Comment } from '../../models/comment';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
 
 @Component({
   selector: 'chk-feed',
@@ -12,20 +17,16 @@ export class FeedComponent implements OnInit {
   posts: Post[];
   isLoading = true;
 
-  constructor(public postService: PostService) { }
+  constructor(public postService: PostService, private commentService: CommentService, public dialog: MatDialog, private snackBar: MatSnackBar) { }
 
+  isScreenValid = false;
 
   code1 =
     `
 [{
     'id': 1,
     'message': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere non excepturi quo in! Est cupiditate',
-    'imageUrl':  'https://www.change-your-home.com/wp-content/uploads/2019/10/meuse-chasse-balle-pied-770x400.jpg',
-    'author': {
-      'id': 1,
-      'firstname':'Joe',
-      'lastname':'Start'
-    }
+    'imageUrl':  'https://www.change-your-home.com/wp-content/uploads/2019/10/meuse-chasse-balle-pied-770x400.jpg'
 }]
 `;
 
@@ -35,22 +36,26 @@ export class FeedComponent implements OnInit {
     'id': 1,
     'message': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere non excepturi quo in! Est cupiditate',
     'imageUrl':  'https://www.change-your-home.com/wp-content/uploads/2019/10/meuse-chasse-balle-pied-770x400.jpg',
-    'author': {
-      'id': 1,
-      'firstname':'Joe',
-      'lastname':'Start'
-    },
     'comments':[{
-      'id':2,
+      'id':1,
       'message':'Super post',
-      'author': {
-        'id': 1,
-        'firstname':'Joe',
-        'lastname':'Start'
-      },
     }]
 }]
 `;
+
+
+
+  code3 =
+    `
+{
+  "post": {
+    "id":2
+  },
+  "message": "c'est vraiment un super post"
+}
+`;
+
+  message = '';
 
 
   ngOnInit(): void {
@@ -65,8 +70,40 @@ export class FeedComponent implements OnInit {
   }
 
 
-  addComment(index: number){
+  addComment(index: number) {
     this.posts[index].commentIsVisible = true;
+  }
+
+
+  sendComment(post: Post) {
+    const realComment: Comment = { post: {id: post.id} as Post, message: this.message };
+
+    this.commentService.create(realComment).subscribe((comment: Comment) => {
+      this.message = '';
+      if (!comment){
+        this.snackBar.open('Le commentaire retourné est null', null, {duration: 3000});
+        return;
+      }
+      if (!Array.isArray(post.comments)){
+        post.comments = [];
+      }
+      post.comments.push(comment);
+      this.openDialog();
+    }, (error) => {
+      this.snackBar.open('Erreur pendant la création', null, {duration: 3000});
+    });
+  }
+
+
+
+
+
+
+  openDialog(): void {
+
+    this.isScreenValid = true;
+    localStorage.setItem('STEP3', 'true');
+    const dialogRef = this.dialog.open(DialogComponent, {});
   }
 
 }

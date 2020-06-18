@@ -1,5 +1,7 @@
 import { User } from './user';
+import { Post } from './post';
 export class Comment {
-  author: User;
+  id?: number;
   message: string;
+  post: Post;
 }

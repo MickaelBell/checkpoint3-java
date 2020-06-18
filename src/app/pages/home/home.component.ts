@@ -8,11 +8,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class HomeComponent implements OnInit {
 
+  showStep3 = false;
   constructor(private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
 
-    const step1 = localStorage.getItem('SETP1');
+    this.showStep3 = localStorage.getItem('STEP3') != null;
 
   }
 
