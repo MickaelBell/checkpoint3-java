@@ -1,6 +1,6 @@
 
 
-  <div class="rules" *ngIf="!isLoading && (posts == undefined || posts?.length == 0 || posts[0]?.author?.firstname == null)" >
+  <div class="rules" *ngIf="!isLoading && (!posts || posts?.length == 0 || posts[0]?.author?.firstname == null)" >
 
     <h1 id="lefeed" >Le feed</h1>
 
@@ -28,7 +28,7 @@
 </div>
 
 
-<div class="error-bloc"  *ngIf="!isLoading && posts.length > 0 && posts[0]?.author == null" >
+<div class="error-bloc"  *ngIf="!isLoading && posts?.length > 0 && posts[0]?.author == null" >
   Certain post ne semble pas avoir d'auteur, un pb de jointure ?
 </div>
 
