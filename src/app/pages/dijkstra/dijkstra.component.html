@@ -1,0 +1,55 @@
+
+<p>
+  Fini la rigolade, il est 22h19, y a de forte chance que cette page ne soit jamais stylisée, d'ailleur y a de forte chance qu'elle est jamais existée !
+</p>
+
+<p>
+
+  Ici l'objectif est de remplir un tableau indiquant le plus court chemin vers les noeuds d'un graphe dirigé.
+</p>
+
+
+<a href="https://www.baeldung.com/java-dijkstra">L'implémentation à utiliser</a>
+
+<p>
+
+  Le graph n'aura pas besoin d'être persisté. On retombe sur du pur java.
+  Il aura la forme créé par l'implémentation de bealdung, ais confiance !
+</p>
+
+<img src="https://www.baeldung.com/wp-content/uploads/2017/01/step8.png" alt="" srcset="">
+
+
+<p>
+
+  Tu peux renseigner ou non un lettre
+</p>
+<p>
+
+  Si tu n'en renseigne pas la requet aura lieu su l'url:
+  'http://localhost:8080/graph'
+</p>
+
+<p>
+  Si tu en renseigne une, la requête aura lieu sur
+  'http://localhost:8080/graph/lalettre'
+</p>
+
+la version la plus simple est certainement de fixer le noeud cible en dur dans le back
+<input [(ngModel)]="node" type="text" maxlength="1">
+<button (click)="send()" >Envoyer</button>
+
+
+
+
+<table>
+  <tr>
+    <td *ngFor="let node of graph?.nodes" > Le noeud {{node.name}} est a une distance de {{node.distance}} </td>
+  </tr>
+</table>
+
+
+
+<strong *ngIf="graph?.nodes?.length > 0 &&  graph?.nodes[0].name && graph?.nodes[0].distance" >
+  Bravo !
+</strong>

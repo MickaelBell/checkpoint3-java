@@ -21,6 +21,7 @@ import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { FormsModule } from '@angular/forms';
 import { FeedComponent } from './pages/feed/feed.component';
 import { DialogComponent } from './pages/feed/dialog/dialog.component';
+import { DijkstraComponent } from './pages/dijkstra/dijkstra.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { DialogComponent } from './pages/feed/dialog/dialog.component';
     UserDetailsComponent,
     EditUserComponent,
     FeedComponent,
-    DialogComponent
+    DialogComponent,
+    DijkstraComponent
   ],
   imports: [
     BrowserModule,
