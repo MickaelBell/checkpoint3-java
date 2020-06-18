@@ -24,7 +24,7 @@
 </div>
 
 <div class="error-bloc"  *ngIf="!isLoading && posts?.length === 0" >
-  Le tableau de données est vide
+  Le tableau de données est vide, tu peux en rajouter manuellement dans ta bdd
 </div>
 
 
@@ -33,7 +33,7 @@
 </div>
 
 <div id="main-feed">
-  <mat-card class="example-card" *ngFor="let post of posts" >
+  <mat-card class="example-card" *ngFor="let post of posts, let i = index" >
     <mat-card-header *ngIf="post?.author" >
     <img mat-card-avatar [src]="post.author.imageUrl" >
     <mat-card-title> {{post.author.firstname + ' ' + post.author.lastname }} </mat-card-title>
@@ -44,10 +44,42 @@
       {{post.message}}
     </p>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
+  <mat-card-actions *ngIf="!(!posts || posts?.length == 0 || posts[0]?.author?.firstname == null)" >
+    <button (click)="addComment(i)" mat-button>Commentaires</button>
   </mat-card-actions>
+  <mat-card-footer *ngIf="post.commentIsVisible" >
+    Liste de commentaire
+
+    <div *ngIf="!post?.comments" >
+      Mince, ce réseau social a visiblement besoin d'avoir une liste de comments associés aux posts.
+
+      Tes posts devraient en faite ressembler à ça :
+
+      <pre>
+        <code [innerHTML]="code2" >
+        </code>
+      </pre>
+    </div>
+
+    <div *ngIf="post?.comments.length === 0" >
+      On dirait qu'il n'y a pas de donnée dans ta bdd, essaye dans rajouter manuellement
+        <pre>
+          <code [innerHTML]="code2" >
+          </code>
+        </pre>
+    </div>
+
+
+    <!-- post?.comments -->
+
+    <mat-list role="list">
+      <mat-list-item *ngFor="let comment of post.comments"  role="listitem">
+        {{comment.message}}
+      </mat-list-item>
+    </mat-list>
+
+
+  </mat-card-footer>
 </mat-card>
 </div>
 

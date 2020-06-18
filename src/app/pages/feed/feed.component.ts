@@ -29,6 +29,29 @@ export class FeedComponent implements OnInit {
 }]
 `;
 
+  code2 =
+    `
+[{
+    'id': 1,
+    'message': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere non excepturi quo in! Est cupiditate',
+    'imageUrl':  'https://www.change-your-home.com/wp-content/uploads/2019/10/meuse-chasse-balle-pied-770x400.jpg',
+    'author': {
+      'id': 1,
+      'firstname':'Joe',
+      'lastname':'Start'
+    },
+    'comments':[{
+      'id':2,
+      'message':'Super post',
+      'author': {
+        'id': 1,
+        'firstname':'Joe',
+        'lastname':'Start'
+      },
+    }]
+}]
+`;
+
 
   ngOnInit(): void {
 
@@ -39,6 +62,11 @@ export class FeedComponent implements OnInit {
 
       this.isLoading = false;
     });
+  }
+
+
+  addComment(index: number){
+    this.posts[index].commentIsVisible = true;
   }
 
 }
