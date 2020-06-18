@@ -43,10 +43,14 @@ export class UserDetailsComponent implements OnInit {
         this.userService.getById(id).subscribe((user: User) => {
           this.snackBar.open('Il semble que l\'objet soit toujours disponible');
         }, (error) => {
-          const snack = this.snackBar.open('Bien joué, la suppression a fonctionnée' );
-          snack.afterDismissed().subscribe(() => {
+          const snack = this.snackBar.open('Bien joué, la suppression a fonctionnée', null,
+          { duration: 3000 } );
+
+          setTimeout(() => {
             this.router.navigateByUrl('/home');
-          });
+          }, 2000);
+
+
         });
     });
   }
