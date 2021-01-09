@@ -1,6 +1,8 @@
 package com.checkpoint3.cp3.entity;
 
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -29,6 +32,11 @@ public class Post {
     @JoinColumn(name = "user_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     User user;
+    
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    List<Comment> comments;
 
 	public Post() {
 	}
