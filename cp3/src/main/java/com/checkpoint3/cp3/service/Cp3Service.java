@@ -1,6 +1,5 @@
 package com.checkpoint3.cp3.service;
 
-import java.time.Instant;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,8 +80,13 @@ public class Cp3Service {
 		return commentRepo.save(newComment);
 	}
 	
+	public Comment updateComment(@RequestBody Comment comment) {
+		return commentRepo.save(comment);
+	}
+	
     public boolean deleteComment(Long id) {
         postRepo.deleteById(id);
         return true;
     }
+    
 }

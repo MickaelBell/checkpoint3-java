@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.checkpoint3.cp3.entity.Post;
-import com.checkpoint3.cp3.entity.User;
 import com.checkpoint3.cp3.service.Cp3Service;
 
 
