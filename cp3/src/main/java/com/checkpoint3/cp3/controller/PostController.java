@@ -35,7 +35,7 @@ public class PostController {
 		return ResponseEntity.ok().body(post);
 	}
 	
-	@PostMapping("/posts/{id}")
+	@PostMapping("/posts")
 	public ResponseEntity<Post> createPost(@RequestBody Post post) {
 		Post postToCreate = cp3serv.createPost(post);
 		return ResponseEntity.ok().body(postToCreate);
