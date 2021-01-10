@@ -35,7 +35,7 @@ public class CommentController {
 		return ResponseEntity.ok().body(comment);
 	}
 	
-	@PostMapping("/comments/{id}")
+	@PostMapping("/comments")
 	public ResponseEntity<Comment> createComment(@RequestBody Comment comment) {
 		Comment commentToCreate = cp3serv.createComment(comment);
 		return ResponseEntity.ok().body(commentToCreate);

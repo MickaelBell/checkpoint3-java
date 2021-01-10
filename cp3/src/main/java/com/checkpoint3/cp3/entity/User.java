@@ -26,10 +26,6 @@ public class User {
 	private String lastname;
 	private String imageUrl;
 	
-   /** @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    List<Post> posts;**/
 	
 	public User() {
 		
