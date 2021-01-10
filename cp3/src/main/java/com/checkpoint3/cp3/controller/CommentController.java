@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.checkpoint3.cp3.entity.Comment;
 import com.checkpoint3.cp3.service.Cp3Service;
 
-@CrossOrigin(origins = "https://javangular-checkpoint3.jsrover.wilders.dev", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class CommentController {
 
